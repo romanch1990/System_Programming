@@ -1,8 +1,21 @@
+/*
+ ============================================================================
+ Name        : count_off_bits.c
+ Author      : Roman Chikunov
+ Version     :
+ Copyright   : 
+ Description : This programs counts the odd bits only if they are set ('1')
+ 			   and than it prints how many odd set bits there are
+ ============================================================================
+ */
+
+
+
 #include<stdio.h>
 
 #define MASK 0x01
 
-int count_odd_bits(long unsigned int number){
+int count_odd_bits(int unsigned long number){
 	int counter = 0;
 	number >>= 1;
 
@@ -17,10 +30,10 @@ int count_odd_bits(long unsigned int number){
 
 int main(){
 
-	long unsigned int num;
+	int unsigned long num;
 	printf("Please enter an unsigned number: \n");
 	scanf("%lu",&num);
-	printf("Number of set bits in the number is: %lu\n", count_odd_bits(num));
+	printf("Number of odd bits that are '1' in the number is: %d\n", count_odd_bits(num));
 	
 	return 0;
 }
