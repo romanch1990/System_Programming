@@ -8,9 +8,6 @@
  			   and than it prints how many odd set bits there are
  ============================================================================
  */
-
-
-
 #include<stdio.h>
 
 #define MASK 0x01
