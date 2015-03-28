@@ -2,11 +2,8 @@
 
 #define MASK 0x01
 
-
-
 int count_odd_bits(unsigned int number){
 	int counter = 0;
-	
 
 	while(number){
 		
