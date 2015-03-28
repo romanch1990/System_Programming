@@ -16,10 +16,10 @@ int count_odd_bits(unsigned int number){
 
 int main(){
 
-	int num;
+	unsigned int num;
 	printf("Please enter an unsigned number: \n");
 	scanf("%u",&num);
-	printf("Number of set bits in the number is: %u\n\n\n\n\n\n\n", count_odd_bits(num));
+	printf("Number of set bits in the number is: %u\n", count_odd_bits(num));
 	
 	return 0;
 }
