@@ -72,6 +72,8 @@ void letters(int c) {
 						state = OUT;
 					break;
 				}
+				else if (isdigit(c))
+					break;
 				else if (c == ' ') {
 					if (buf != ' ')
 						putchar(c);			
