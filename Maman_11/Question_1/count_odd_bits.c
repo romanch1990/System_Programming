@@ -1,6 +1,6 @@
 /*
  ============================================================================
- Name        : count_off_bits.c
+ Name        : count_odd_bits.c
  Author      : Roman Chikunov
  Version     :
  Copyright   : 
