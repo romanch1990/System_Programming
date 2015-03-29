@@ -1,12 +1,34 @@
+/*
+ ============================================================================
+ Name        : count_off_bits.c
+ Author      : Roman Chikunov
+ Version     :
+ Copyright   : 
+ Description : This program edit text with the following rules:
+ 			   1. A capital letter will begin every sentence.
+ 			   2. Every sentence between quotes will be capitalized
+ 			   3. Every other letters will be lower cased. 
+ 			   4. Numbers shall not be printed. 
+ 			   5. A blank line should be printed after each input line.
+ ============================================================================
+ */
 #include <stdio.h>
 #include <ctype.h>
 
-enum status {OUT, NEW_SENTENCE, IN_QUOTES, DIGITS};
 
-void letters(int c) {
+/* A main function that invokes letters fucntion in order 
+	to edit the sentence as required*/
+int main(){
+
+	int c;
+
+	/*states of the switch, each states validate the required 
+	rules as mentioned beforehand*/
+	enum status {OUT, NEW_SENTENCE, IN_QUOTES, DIGITS};
+
 	int state = NEW_SENTENCE, buf = 0;
 	
-	while ((c = getchar()) != EOF) {
+	while ((c = getchar()) != EOF){
 		switch (state) {
 			case OUT:
 				if (c == '.'|| c == '\n') {
@@ -94,15 +116,6 @@ void letters(int c) {
 				break;
 		}
 	}
-}
-
-
-
-int main(){
-	int c;
-	
-	while((c = getchar()) != EOF)
-		letters(c);
 	
 	return 0;
 }
