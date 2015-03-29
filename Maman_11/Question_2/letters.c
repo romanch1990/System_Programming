@@ -1,6 +1,6 @@
 /*
  ============================================================================
- Name        : count_off_bits.c
+ Name        : letters.c
  Author      : Roman Chikunov
  Version     :
  Copyright   : 
@@ -115,7 +115,6 @@ int main(){
 				buf = c;
 				break;
 		}
-	}
-	
+	}	
 	return 0;
 }
