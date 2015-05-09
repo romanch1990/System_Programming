@@ -1,2 +1,2 @@
-prog: adjacency.o adjacency.h
-	gcc -g -Wall -pedantic -ansi adjacency.c -o prog
+all: adjacency.c
+	gcc -ansi -pedantic -Wall -lm -o adjacency adjacency.c
