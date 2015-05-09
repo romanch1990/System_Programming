@@ -2,7 +2,8 @@
  ============================================================================
  Name        : adjacency.c
  Author      : Roman Chikunov
- Description : Checks if there is direct path for one point to another in a tree
+ Description : Checks if there is directed path from the root to a node within a tree
+ 				that represented by a matrix. 
  ============================================================================
  */
 
@@ -14,7 +15,7 @@ typedef enum boolean {
 	FALSE, TRUE
 } boolean;
 
-int* GetMat(int* A){
+int* getMat(int* A){
 	int *p;
 	for (p=A; p < A +((N+1)*(N+1)); p++)
 		scanf("%d", &(*p));
@@ -22,7 +23,7 @@ int* GetMat(int* A){
 }
 
 /* Prints the array*/
-void PrintArray(int *A) {
+void printArray(int *A) {
 	int *p, *p2;
 	printf("The input array is:\n\n");
 	for (p=A; p < A+((N+1)*(N+1)); ) {
@@ -33,7 +34,7 @@ void PrintArray(int *A) {
 }
 
 /*Gets the source to search from*/
-int GetSource() {
+int getSource() {
 	int y;
 	printf("\nPlease enter the source number: ");
 	scanf("%d", &y);
@@ -41,15 +42,15 @@ int GetSource() {
 }
 
 /*Gets the destination to search to*/
-int GetDestination() {
+int getDestination() {
 	int x;
 	printf("\nPlease enter the destination number: ");
 	scanf("%d", &x);
 	return x;
 }
 
-/* Gets the tree and 2 nodes from it, and declares if
- * there is a path between the first node to the second */
+/* Gets a directed tree from the user that represented as a matrix
+	and prints a result which would be a path exists between two nodes or doesn't exist*/
 int path(int *A, int u, int v) {
 	int *p;
 	int i;
@@ -74,12 +75,12 @@ int main(void) {
 	boolean Answer;
 
 	A = (int*) malloc((N+1)*(N+1)*sizeof(int));
-	A = GetMat(A);
-	PrintArray(A);
+	A = getMat(A);
+	printArray(A);
 
-	u = GetSource();
+	u = getSource();
 	printf("\nYou entered %d (From the input file...)\n", u);
-	v = GetDestination();
+	v = getDestination();
 	printf("\nYou entered %d (From the input file...)\n", v);
 
 	Answer = path(A,u,v);
