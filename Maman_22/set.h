@@ -6,9 +6,9 @@
 
 #define BYTE_SIZE	(sizeof(char)*8)
 #define ARR_SIZE	(128/BYTE_SIZE) /*The array's size (=16)*/
-#define NUM_OF_SETS	7
-#define NUM_OF_FUNCS	6
-#define LONGEST_FUNC	13
+#define NUM_OF_SETS 7
+#define NUM_OF_FUNCS 6
+#define LONGEST_FUNC 13
 #define HELP_SET	NUM_OF_SETS-1
 
 typedef struct {
@@ -18,7 +18,7 @@ typedef struct {
 
 void start(void);
 void print_msg(int loc);
-int kill_spaces(void);	
+int remove_spaces(void);	
 void empty_set(int loc);	
 void print_set(int setX);
 void union_set(int setX, int setY, int setZ);

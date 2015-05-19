@@ -61,7 +61,7 @@ void start(void) {
 				break;
 			
 			case READ_SET_NAME:
-				c = kill_spaces();
+				c = remove_spaces();
 				if (!isalpha(c)) {
 					print_msg(0);
 					state = RESET;
@@ -122,7 +122,7 @@ void start(void) {
 			
 			case CHECK_COMMA:
 				if (isspace(c) && c != '\n')
-					c = kill_spaces();
+					c = remove_spaces();
 				if (c == ',') {
 					state = next_state;
 					break;
@@ -241,7 +241,7 @@ void print_set(int setX) {
 }
 
 
-int kill_spaces() {
+int remove_spaces() {
 	int c;
 	while (isspace(c = getchar()))
 		;
