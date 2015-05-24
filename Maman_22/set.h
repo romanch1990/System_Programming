@@ -16,6 +16,8 @@ typedef struct {
 	char set_arr[ARR_SIZE];
 } SET;
 
+/* prototype functions */
+
 void start(void);
 void print_msg(int loc);
 int remove_spaces(void);	
@@ -25,6 +27,3 @@ void union_set(int setX, int setY, int setZ);
 void intersect_set(int setX, int setY, int setZ);
 void sub_set(int setX, int setY, int setZ);
 void halt(void);
-
-
-

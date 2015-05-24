@@ -1,10 +1,8 @@
-CREATE = gcc -Wall -ansi -pedantic -g
-
 set:	main.o set.o
-	$(CREATE) -o set main.o set.o
+	gcc -Wall -ansi -pedantic -g -o set main.o set.o
 	
 set.o:	set.c
-	$(CREATE) -c set.c
+	gcc -Wall -ansi -pedantic -g -c set.c
 	
 main.o:	main.c set.h
-	$(CREATE) -c main.c
+	gcc -Wall -ansi -pedantic -g -c main.c
