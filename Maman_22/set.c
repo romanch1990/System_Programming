@@ -6,15 +6,17 @@ SET sets[NUM_OF_SETS]= {{'A', {""}},	/*0*/
 			{'D', {""}},	/*3*/
 			{'E', {""}},	/*4*/
 			{'F', {""}},	/*5*/
-			{'G', {""}}};	/*6 - a help set*/
-			
+			{'G', {""}}};	/*6 - an assisting set*/
+
+/* fucntion that the user should call */			
 char *func_names[] = {"read_set",		/*0*/
 			"print_set",		/*1*/
 			"union_set",		/*2*/
 			"intersect_set",	/*3*/
 			"sub_set",		/*4*/
 			"halt"};		/*5*/
-			
+
+/* error handling */			
 char *msgs[] = { "Error - No such set\n",	/*0*/
 			"Error - No such command\n",	/*1*/
 			"Error - Wrong syntax\n",	/*2*/
