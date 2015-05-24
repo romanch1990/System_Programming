@@ -61,10 +61,10 @@ void start(void) {
 				}
 				state = READ_SET_NAME;
 				break;
-			
+				
 			case READ_SET_NAME:
 				c = remove_spaces();
-				if (!isalpha(c)) {
+				if (!isalpha(c)) {/*no such set*/
 					print_msg(0);
 					state = RESET;
 					break;
@@ -191,7 +191,7 @@ void start(void) {
 	}
 	halt();
 }
-
+/* the definition of the functions */
 void empty_set(int loc) {
 	int i;
 	for (i = 0; i < ARR_SIZE; i++)
