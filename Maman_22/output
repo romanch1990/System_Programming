@@ -1,0 +1,40 @@
+roman@ubuntu:~/Desktop/System_Programming/Maman_22$ ./set
+Please enter a command, and then press Enter:
+read_set A,45,23,6,7,4,3,75,34,-1
+
+Please enter a new command:
+read_set B,5,4,3,2,78,45,43,-1
+
+Please enter a new command:
+union_set A.B.C
+
+Please enter a new command:
+intersect_set A,B,C
+
+Please enter a new command:
+sub_set A,B,D
+
+Please enter a new command:
+print_set A
+The set is: 3, 4, 6, 7, 23, 34, 45, 75, end of set!
+
+Please enter a new command:
+print_set B           
+The set is: 2, 3, 4, 5, 43, 45, 78, end of set!
+
+Please enter a new command:
+print_set C
+The set is: 3, 4, 45, end of set!
+
+Please enter a new command:
+print_set D
+The set is: 6, 7, 23, 34, 75, end of set!
+
+Please enter a new command:
+print_set E
+The set is: Empty!
+
+Please enter a new command:
+halt
+roman@ubuntu:~/Desktop/System_Programming/Maman_22$ 
+
