@@ -3,7 +3,7 @@
 extern char *err_msgs[];
 
 typedef struct MACRO *macroptr;
-/*contain all the info about the marco that we will handle*/
+/*Contains all the info about the marco that we will handle*/
 typedef struct MACRO {
 	char name[LINE_LEN];
 	char parm[MAX_PARM][PARM_LEN];
@@ -12,7 +12,7 @@ typedef struct MACRO {
 	macroptr next;
 } T_macro;
 
-/*will point to the head of macros and a pointer to the last in the list*/
+/*Pointers that will point to the head of macros and to the last in the list*/
 macroptr M_head = NULL, M_ptr = NULL;
 
 
@@ -72,7 +72,7 @@ int add_macro_node() {
 }
 
 
-/*add the name of the macro and return it's length */
+/*add the name of the macro and return its length */
 int add_macro_name(char *line) {
 	int c, j = 0, i = kill_spaces(line);
 	macroptr M_temp = last_in_macro_list();
@@ -120,17 +120,17 @@ void print_macro_list() {
 	macroptr M_temp;
 	int i = 1, j;
 	if (M_head == NULL) {
-		printf("**The macro list is empty**\n\n");
+		printf("**Macro list is empty**\n\n");
 		return;
 	}
 	for (M_temp = M_head; M_temp; M_temp = M_temp->next) {
-		printf("%d) macro's  name: %s\n", i++, M_temp->name);
+		printf("%d) Macro's  name: %s\n", i++, M_temp->name);
 		printf("The amount of parm is: %d\n", M_temp->num_of_parm);
 		printf("The macro's body is: %s\n", M_temp->body);
 		for (j = 0; j < MAX_PARM; j++)
 			printf("parm num %d is: %s\n\n", j, M_temp->parm[j]);
 	}
-	printf("**The end of macro list**\n\n");
+	printf("**End of macro list**\n\n");
 }
 
 /*put in loc the loction of the name in the array and check if the name if in a string or not return SUCCESS if in a string return the q_mark counter*/
@@ -155,7 +155,7 @@ int check_q_mark(char *line, char *ptr, int *loc) {
 int replace_macro(char *line, char *updated_line) {
 	int loc = 0, i, j = 0, q_mark = 0, c, parm_cnt = 0;
 	char *ptr, **parm = (char **) malloc (sizeof(char *) * MAX_PARM);
-	macroptr M_temp;  printf("in replace_macro, line = '%s'\n", line);
+	macroptr M_temp;  printf("in replace_macro, line = %s\n", line);
 	if (!parm) {
 		fprintf(stderr, "par3: %s", err_msgs[(-1) * OUT_OF_SPACE]);
 		return OUT_OF_SPACE;
@@ -169,11 +169,11 @@ int replace_macro(char *line, char *updated_line) {
 		}
 	}
 	for (M_temp = M_head; M_temp; M_temp = M_temp->next) {
-		/*if there is a mach*/
+		/*if there is a match*/
 		if ((ptr = strstr(line, M_temp->name))) {
 			char *temp_ptr = ptr;
 			q_mark = check_q_mark(line, ptr, &loc);
-			/*if it's in quotation mark - ignor it and update ptr */
+			/*if it's in quotation mark - ignore it and update ptr */
 			while (q_mark % 2 != SUCCESS && loc < strlen(line) && temp_ptr) {
 				temp_ptr = strstr(line + (loc+1), M_temp->name);
 				if (temp_ptr) {

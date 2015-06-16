@@ -13,7 +13,7 @@ void free_macro_list(void);
 int replace_enum(char *line, char *updated_line);
 int replace_macro(char *line, char *updated_line);
 
-/*get a file name (*.c but use the *.c2) replace the macros and enums with corresponding value and save it on the same name with 3 at the end (*.c3)
+/*get a file name (*.c but use the *.c2) - replace the macros and enums with corresponding value and save it as the same name with 3 at the end instead of 2(*.c3)
  note that you have maximum 3 parameters for each marco and maximum 9 variables for each enum */
 int part3(char *str_c) {
 	/*The input file and output file*/
@@ -21,7 +21,7 @@ int part3(char *str_c) {
 	
 	int status;
 
-	/*the files names (*.c2 and *.c3) */
+	/*Files names (*.c2 and *.c3) */
 	char	*str_c2 = (char *) malloc (strlen(str_c) + 2),
 			*str_c3 = (char *) malloc (strlen(str_c) + 2),
 			*line = (char *) malloc (LINE_LEN),
@@ -41,17 +41,17 @@ int part3(char *str_c) {
 	strcpy(str_c3, str_c);
 	strcat(str_c3, "3");
 	
-	/*open the file *.c2 */
+	/*open *.c2 */
 	if (!(file_c2 = open_file(str_c2, "r")))
 		return FILE_ERROR;
 
-	/*open the file *.c3 */
+	/*open *.c3 */
 	if (!(file_c3 = open_file(str_c3, "w")))
 		return FILE_ERROR;
 	
-	/*while it's not the EOF - get another line and check it out*/
+	/*read lines until its EOF*/
 	while (fgets(line, LINE_LEN, file_c2)) {
-		/*if there is enough chars for the string "enum{};" and/or the string "#define"*/
+		/*checks whether there is enough chars for the string "enum{};" and/or the string "#define"*/
 		if (strlen(line) > 7) {
 			if (strstr(line, "#define")) {
 				if ((status = add_macro(line + 7)) < 0)
@@ -64,7 +64,7 @@ int part3(char *str_c) {
 				line[0] = '\0';
 			}
 		}
-		/*if there are no new macro's or enums*/
+		/*if there are no new macros or enums*/
 		if (line[0] == '\0' || kill_spaces(line) >= strlen(line))
 			fputs("\n", file_c3);
 		else if (line[0] != '\n') {
@@ -96,7 +96,7 @@ int part3(char *str_c) {
 	return SUCCESS;
 }
 
-/*kill white spaces*/
+/*remove white spaces*/
 int kill_spaces(char *line) {
 	int i;
 	for (i = 0; i < strlen(line) && isspace(line[i]); i++)

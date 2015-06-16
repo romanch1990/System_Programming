@@ -4,13 +4,13 @@ extern char *err_msgs[];
 
 enum status {OUT, IN_STRING, SLASH, IN_COMMENT, RIGHT_STAR, IN_CPP_COM};
 
-/*get a file name (*.c) remove the comments and save it on the same name with 1 at the end (*.c1)  */
+/*get a file (*.c) - remove the comments and save it as the same name with 1 at the end (*.c1)  */
 int part1(char *str_c) { 
 	/*The input file and output file*/
 	FILE *file_c, *file_c1;
 	int c, state = OUT;
 	
-	/*the file's name with 1 at the end (*.c1)  */
+	/*The file's name with 1 at the end (*.c1)  */
 	char *str_c1 = (char *) malloc (strlen(str_c) + 2);
 	
 	if (!str_c1) {
@@ -22,15 +22,15 @@ int part1(char *str_c) {
 	strcpy(str_c1, str_c);
 	strcat(str_c1, "1");
 	
-	/*open the file *.c */
+	/*open *.c */
 	if (!(file_c = open_file(str_c, "r")))
 		return FILE_ERROR;
 
-	/*open the file *.c1 */
+	/*open *.c1 */
 	if (!(file_c1 = open_file(str_c1, "w")))
 		return FILE_ERROR;
 	
-	/*copy all the content of file_c to file_c1 exept the comments*/
+	/*copy all the content of file_c to file_c1 except the comments*/
 	while ((c = getc(file_c)) != EOF) {
 		switch (state) {
 			case OUT:

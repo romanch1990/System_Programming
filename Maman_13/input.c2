@@ -1,0 +1,13 @@
+
+
+#define TRUE 1
+#define FALSE 0
+
+
+
+enum { FALSE, TRUE };
+
+int i;
+i = FALSE;
+
+int a = TRUE;

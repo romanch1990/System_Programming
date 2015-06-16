@@ -3,14 +3,14 @@
 extern char *err_msgs[];
 
 typedef struct ENUM *enumptr;
-/*contain all the info about the enum that we will handle*/
+/*contain all the info about the enum that we will handled*/
 typedef struct ENUM {
 	char name[PARM_LEN];
 	char val;
 	enumptr next;
 } T_enum;
 
-/*will point to the head of macros and a pointer to the last in the list*/
+/*Pointers that will point to the head of macros and to the last in the list*/
 enumptr E_head = NULL, E_ptr = NULL;
 
 
@@ -78,7 +78,7 @@ int add_enum_node() {
 }
 
 
-/*add the enum's name and return it's length */
+/*add the enum's name and return its length */
 int add_enum_name(char *line) {
 	int i = 0, j = 0, c;
 	enumptr E_temp = last_in_enum_list();

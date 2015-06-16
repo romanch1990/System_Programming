@@ -1,11 +1,12 @@
 /* Name: Roman Chikunov
 
+   Get a file - Removes comments and replaces the includes, macros & enums with corresponding values.
 
 */
 
 
 #include "permut.h"
-
+/* Error messages for error handling */
 char *err_msgs[] = {"",
 		"Out of space\n",
 		"Wrong syntax\n",
@@ -17,7 +18,6 @@ int part1(char *name);
 int part2(char *name);
 int part3(char *name);
 
-/*get a file name and remove the comments and replace the includes, macros and enums with corresponding value*/
 int main(int argc, char *argv[]) {
 	char *prog_name;
 	int status;
@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
 		exit(WRONG_SYNTAX);
 	}
 	
-	/*activate all parts and check if all went well*/
+	/*Activate all parts and check if all were successful*/
 	if ((status = part1(prog_name)) < SUCCESS)
 		exit(status); 
 	else if ((status = part2(prog_name)) < SUCCESS)
@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
 	exit(SUCCESS);
 }
 
-/*check the name of the program. return 1 if not valid and 0 if is*/
+/*Check the name of the program. Return 1 if not valid and 0 if it is*/
 int check_name(char *name) {
 	int len = strlen(name), i = 0;
 	

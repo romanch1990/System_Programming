@@ -1,0 +1,46 @@
+A ^= B;
+B ^= A;
+A ^= B;
+
+^ is the xor operator which means this operator sets the bit if they are different and zero the bit if they are the same. 
+The 3 statements above results with swapping the values of A and B between them. A will have B's value and B will have A's value.
+
+Let's examine the following example:
+
+========================================
+Let A = 5 and B = 6 
+
+
+A = A ^ B = 5 ^ 6
+
+101
+110
+====
+011 = 3 = A
+
+
+========================================
+
+B = B ^ A = 6 ^ 3
+
+110
+011
+===
+101 = 5 = B
+
+
+========================================
+A = A ^ B = 3 ^ 5
+
+011
+101
+===
+110 = 6 = A
+
+
+
+Final Results:
+--------------
+
+A = 6
+B = 5
