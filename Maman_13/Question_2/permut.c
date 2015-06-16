@@ -1,9 +1,12 @@
-/* Name: Roman Chikunov
-
-   Get a file - Removes comments and replaces the includes, macros & enums with corresponding values.
-
-*/
-
+/*
+ ============================================================================
+ Name        : permuit.c
+ Author      : Roman Chikunov
+ Version     :
+ Copyright   : 
+ Description : Get a *.c file - Removes comments and replaces the includes, macros & enums with corresponding values.
+ ============================================================================
+ */
 
 #include "permut.h"
 /* Error messages for error handling */
@@ -69,7 +72,7 @@ int check_name(char *name) {
 		return WRONG_FILE_NAME;
 }
 
-/*open a file. return a pointer to the memory location or NULL*/
+/*open a file. Return a pointer to the memory location or NULL*/
 FILE *open_file(char *name, char *mode) {
 	FILE *file;
 	if (!(file = fopen(name, mode))) {

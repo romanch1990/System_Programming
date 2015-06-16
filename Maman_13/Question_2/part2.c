@@ -42,7 +42,7 @@ int part2(char *str_c) {
 	
 	/*read lines until its EOF*/
 	while ((fgets(line, LINE_LEN, file_c1))) {
-		i = 0, status;
+		i = 0;
 		/*if there is enough chars for the string "#include" */
 		if (strlen(line) > 9) {
 			if (strstr(line, "#include")) {
